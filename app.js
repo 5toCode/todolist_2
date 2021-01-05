@@ -8,6 +8,7 @@ let newListItems = ['Buy food', 'Cook food', 'Eat food'];
 app.set('view engine', 'ejs');
 
 app.use(bodyParser.urlencoded({extended: true}));
+app.use(express.static('public'));
 
 const options = { weekday: 'long', month: 'long', day: 'numeric' };
 const today  = new Date();
