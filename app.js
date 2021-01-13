@@ -1,7 +1,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require('mongoose');
-// const date = require(__dirname + '/date.js');
+const _ = require('lodash');
 
 const app = express();
 
@@ -62,7 +62,7 @@ app.get("/", function(req, res){
 });
 
 app.get('/:listName', function(req, res) {
-  const listName = req.params.listName;
+  const listName = _.capitalize(req.params.listName);
   List.findOne({name: listName}, function(err, foundList) {
     if (!err) {
       if(foundList) {
